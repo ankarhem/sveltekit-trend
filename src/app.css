@@ -7,3 +7,30 @@
   display: grid;
   height: 100%;
 }
+
+:root {
+  --primary: 353 93% 28%;
+  --secondary: 35 70% 47%;
+  --accent: 60 100% 87%;
+  --neutral: 277 16% 16%;
+  --base-100: 240 20% 99%;
+  --base-200: 240 20% 89%;
+  --base-300: 240 21% 79%;
+  --info: 213 55% 52%;
+  --success: 152 75% 51%;
+  --warning: 44 87% 35%;
+  --error: 353 90% 60%;
+  --primary-focus: 353 93% 22%;
+  --success-focus: 35 70% 38%;
+  --accent-focus: 60 100% 69%;
+  --neutral-focus: 278 17% 13%;
+  --base-content: 240 2% 20%;
+  --primary-content: 353 100% 86%;
+  --success-content: 35 100% 9%;
+  --accent-content: 60 100% 17%;
+  --neutral-content: 277 33% 83%;
+  --info-content: 213 100% 90%;
+  --success-content: 152 100% 10%;
+  --warning-content: 44 100% 87%;
+  --error-content: 353 100% 92%;
+}
