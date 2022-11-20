@@ -1,0 +1,28 @@
+#import ~/graphql/fragments/baseFragments/RouteMetaFragment.gql
+#import ~/graphql/fragments/baseFragments/HeadFragment.gql
+#
+#import ~/graphql/fragments/ProductPageFragment.gql
+#import ~/graphql/fragments/ContentPageFragment.gql
+#import ~/graphql/fragments/CategoryPageFragment.gql
+#import ~/graphql/fragments/StartPageFragment.gql
+
+query Route(
+  $path: String!
+  $first: Paging = 16
+  $offset: Int = 0
+  $orderBy: ProductOrderOptions
+  $orderByDirection: SortDirection
+  $filters: FilterInput
+) {
+  route(path: $path) {
+    ...RouteMeta
+    object {
+      __typename
+      ...Head
+      ...CategoryPage
+      ...ProductPage
+      ...ContentPage
+      ...StartPage
+    }
+  }
+}

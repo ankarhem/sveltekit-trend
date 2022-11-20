@@ -1,0 +1,9 @@
+#import ~/graphql/fragments/baseFragments/CartCoreFragment.gql
+
+mutation addMultipleToCart($cartId: String, $items: [AddMultipleToCartInput]!) {
+  addMultipleToCart(cartId: $cartId, items: $items) {
+    cart {
+      ...CartCoreFragment
+    }
+  }
+}

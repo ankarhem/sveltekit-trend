@@ -1,0 +1,13 @@
+overwrite: true
+schema:
+  'https://storeapi.jetshop.io:':
+    headers:
+      shopid: 'demostore'
+      token: '359fd7c1-8e72-4270-b899-2bda9ae6ef57'
+documents: './graphql/**/*.gql'
+generates:
+  './src/graphql-operations.ts':
+    plugins:
+      - typescript
+      - typescript-operations
+      - typed-document-node

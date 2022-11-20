@@ -1,0 +1,51 @@
+#import ./ContentItemFragment.gql
+
+fragment ContentPage on Page {
+  primaryRoute {
+    id
+    path
+  }
+  name
+  mainHeader
+  # Need to alias this field because the api
+  # returns inconsistent field type int / id type
+  pageId: id
+  content
+  images {
+    url
+  }
+  data {
+    id
+    items {
+      ...ContentItemFragment
+      children {
+        ...ContentItemFragment
+      }
+    }
+  }
+
+  parent {
+    id
+    name
+    primaryRoute {
+      id
+      path
+    }
+    subPages(includeHidden: false) {
+      ...SubPage
+    }
+  }
+
+  subPages(includeHidden: false) {
+    ...SubPage
+  }
+}
+
+fragment SubPage on Page {
+  id
+  name
+  primaryRoute {
+    id
+    path
+  }
+}

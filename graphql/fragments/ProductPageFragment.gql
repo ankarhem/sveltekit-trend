@@ -1,0 +1,114 @@
+#import ~/graphql/fragments/baseFragments/ProductPriceFragment.gql
+#import ~/graphql/fragments/baseFragments/ProductVariantPriceFragment.gql
+#import ~/graphql/fragments/baseFragments/StockStatusFragment.gql
+#import ~/graphql/fragments/baseFragments/BadgeFragment.gql
+#import ~/graphql/fragments/baseFragments/CommentsFragment.gql
+#import ~/graphql/fragments/baseFragments/ProductCampaignFragment.gql
+#import ~/graphql/fragments/baseFragments/ProductConfigurationsFragment.gql
+#import ~/graphql/fragments/baseFragments/PriceFragment.gql
+#
+#import ./InPackagesFragment.gql
+#import ./ProductGridFragment.gql
+#import ./PackageProductFragment.gql
+#import ./StockStatus/WarehouseStockFragment.gql
+
+fragment ProductPage on Product {
+  id
+  articleNumber
+  name
+  subName
+  breadcrumbText
+  shortDescription
+  description
+  hasVariants
+  isPackage
+  canonicalCategory {
+    primaryRoute {
+      path
+    }
+  }
+  categories {
+    primaryRoute {
+      path
+    }
+  }
+  primaryRoute {
+    path
+    id
+    breadcrumbs
+  }
+  ...ProductPrice
+  stockStatus {
+    ...StockStatus
+  }
+  warehouseStock {
+    ...WarehouseStock
+  }
+  ...CommentsFragment
+  variants {
+    options {
+      name
+      values
+    }
+    values {
+      warehouseStock {
+        ...WarehouseStock
+      }
+      values
+      articleNumber
+      images {
+        url
+        modifiedDate
+      }
+      ...ProductVariantPrice
+      stockStatus {
+        ...StockStatus
+      }
+    }
+  }
+  images {
+    alt
+    title
+    url
+    modifiedDate
+  }
+  relatedProducts {
+    ...ProductGrid
+  }
+  customFields {
+    key
+    type
+    title
+    ... on CustomBoolField {
+      boolValue: value
+    }
+    ... on CustomStringField {
+      stringValue: value
+    }
+    ... on CustomHtmlField {
+      htmlValue: value
+    }
+    ... on CustomListField {
+      listValues: value
+    }
+    ... on CustomMultiLevelListField {
+      items {
+        id
+        parentId
+        title
+        value
+      }
+    }
+  }
+  badges {
+    ...Badge
+  }
+  preOrder {
+    fromDate
+    toDate
+  }
+  ...InPackages
+  ...ProductConfigurations
+  ...ProductCampaign
+  ...PackageProductFragment
+}

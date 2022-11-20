@@ -11,8 +11,9 @@
 
 <header class="grid grid-cols-3 bg-base-100 px-4 shadow-sm">
 	<nav class="flex items-center">
-		<a href="/" class="block px-1 py-2">Home</a>
-		<a href="/about" class="block px-1 py-2">About</a>
+		<a href="/" class="block px-1 py-2">Startpage</a>
+		<a href="/accessories" class="block px-1 py-2">Accessories</a>
+		<a href="/bikes" class="block px-1 py-2">Bikes</a>
 	</nav>
 	<a href="/" class="flex items-center justify-self-center">
 		<img alt="logo" src={logoSrc} />
