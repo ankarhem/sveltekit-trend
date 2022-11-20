@@ -9,8 +9,6 @@
 	import ProductGrid from './ProductGrid.svelte';
 
 	export let data: CategoryPageData;
-
-	console.log(data.products?.filters);
 </script>
 
 <FiltersComponent filters={data.products?.filters} />
