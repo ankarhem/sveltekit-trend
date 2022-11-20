@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-	import CategoryPage from './CategoryPage.svelte';
+	import CategoryPage from '../../components/CategoryPage/index.svelte';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;

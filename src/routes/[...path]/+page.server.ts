@@ -1,10 +1,10 @@
 import { error } from '@sveltejs/kit';
-import { RouteDocument } from '../../graphql-operations';
+import { RouteDocument, type RouteQuery } from '../../graphql-operations';
 import { jetshopRequest } from '../../lib/jetshop';
 import type { PageServerLoad } from './$types';
 
 /** @type {import('./$types').PageServerLoad} */
-export const load: PageServerLoad = async ({ params }) => {
+export const load: PageServerLoad = async ({ params, url }) => {
 	const result = await jetshopRequest({
 		query: RouteDocument,
 		variables: {
@@ -26,5 +26,5 @@ export const load: PageServerLoad = async ({ params }) => {
 		throw error(500, { message: 'Internal server error' });
 	}
 
-	return result.data?.route;
+	return result.data.route;
 };

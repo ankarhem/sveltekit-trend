@@ -1,18 +1,13 @@
 <script lang="ts">
-	import type { CategoryPageData } from './+page.svelte';
+	import type { CategoryProduct } from './index.svelte';
 
-	export let data: CategoryPageData;
+	export let products: CategoryProduct[];
 </script>
 
 <ul class="my-7 grid grid-cols-2 content-center gap-x-4 gap-y-8 md:grid-cols-3 lg:grid-cols-4">
-	{#each data.products?.result || [] as product}
+	{#each products || [] as product}
 		{#if product}
-			<!-- <div class="flex flex-col items-center">
-				<img src={product.images?.[0]?.url} alt={product.name} class="w-64 h-64 object-cover" />
-				<h2 class="text-2xl font-bold">{product.name}</h2>
-				<p class="text-xl">{product.price}</p>
-			</div> -->
-			<li class="flex flex-col rounded-md overflow-hidden bg-white shadow-sm">
+			<li class="flex flex-col rounded-md overflow-hidden bg-white shadow-md">
 				<a class="block" href={product.primaryRoute?.path}>
 					<img
 						src={product.images?.[0]?.url}
@@ -32,9 +27,9 @@
 				</a>
 				<a
 					href={product.primaryRoute?.path}
-					class="mt-auto block w-full cursor-pointer border-0 bg-primary py-3 px-4 text-center text-sm text-primary-content hover:opacity-95"
+					class="mt-auto block w-full cursor-pointer border-0 bg-primary py-3 px-4 text-center text-sm text-primary-content hover:bg-primary-focus"
 				>
-					Köp/Förhandsvisa
+					Köp omedel bums
 				</a>
 			</li>
 		{/if}

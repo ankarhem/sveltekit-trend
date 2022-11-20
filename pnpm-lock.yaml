@@ -8,6 +8,7 @@ specifiers:
   '@graphql-codegen/typescript-operations': ^2.5.6
   '@graphql-typed-document-node/core': ^3.1.1
   '@neoconfetti/svelte': ^1.0.0
+  '@rgossiaux/svelte-headlessui': ^1.0.2
   '@sveltejs/adapter-auto': next
   '@sveltejs/kit': next
   '@types/cookie': ^0.5.1
@@ -41,6 +42,7 @@ devDependencies:
   '@graphql-codegen/typescript-operations': 2.5.7_graphql@16.6.0
   '@graphql-typed-document-node/core': 3.1.1_graphql@16.6.0
   '@neoconfetti/svelte': 1.0.0
+  '@rgossiaux/svelte-headlessui': 1.0.2_svelte@3.53.1
   '@sveltejs/adapter-auto': 1.0.0-next.88
   '@sveltejs/kit': 1.0.0-next.553_svelte@3.53.1+vite@3.2.4
   '@types/cookie': 0.5.1
@@ -1393,6 +1395,14 @@ packages:
 
   /@repeaterjs/repeater/3.0.4:
     resolution: {integrity: sha512-AW8PKd6iX3vAZ0vA43nOUOnbq/X5ihgU+mSXXqunMkeQADGiqw/PY0JNeYtD5sr0PAy51YPgAPbDoeapv9r8WA==}
+    dev: true
+
+  /@rgossiaux/svelte-headlessui/1.0.2_svelte@3.53.1:
+    resolution: {integrity: sha512-sauopYTSivhzXe1kAvgawkhyYJcQlK8Li3p0d2OtcCIVprOzdbard5lbqWB4xHDv83zAobt2mR08oizO2poHLQ==}
+    peerDependencies:
+      svelte: ^3.44.0
+    dependencies:
+      svelte: 3.53.1
     dev: true
 
   /@sveltejs/adapter-auto/1.0.0-next.88:
