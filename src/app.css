@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cross-browser fill height */
+:where(:root){
+  display: grid;
+  height: 100%;
+}
