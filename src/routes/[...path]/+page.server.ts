@@ -1,4 +1,4 @@
-import { invalid } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 import { RouteDocument } from '../../graphql-operations';
 import { jetshopRequest } from '../../lib/jetshop';
 import type { PageServerLoad } from './$types';
@@ -13,11 +13,17 @@ export const load: PageServerLoad = async ({ params }) => {
 	});
 
 	if (result.errors) {
-		return invalid(500, { errors: result.errors });
+		const err = result.errors?.[0];
+		switch (err.extensions?.code) {
+			case 'EmptyRoute':
+				throw error(404, { message: 'Route not found' });
+			default:
+				return error(500, { message: 'Internal server error' });
+		}
 	}
 
 	if (!result.data?.route) {
-		return invalid(404, { errors: [{ message: 'Route not found' }] });
+		throw error(500, { message: 'Internal server error' });
 	}
 
 	return result.data?.route;

@@ -14,6 +14,7 @@
 		<a href="/" class="block px-1 py-2">Startpage</a>
 		<a href="/accessories" class="block px-1 py-2">Accessories</a>
 		<a href="/bikes" class="block px-1 py-2">Bikes</a>
+		<a href="/does-not-exist" class="block px-1 py-2">404</a>
 	</nav>
 	<a href="/" class="flex items-center justify-self-center">
 		<img alt="logo" src={logoSrc} />
